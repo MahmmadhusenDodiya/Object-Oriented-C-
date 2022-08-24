@@ -8,7 +8,8 @@ private:
 public:
 	Complex()
 	{
-		
+		a=0;
+		b=0;
 	}
 	Complex(int x,int y){
 		a=x;
@@ -22,7 +23,23 @@ public:
 	
 	friend Complex operator+(Complex,Complex);
 	friend Complex operator-(Complex);
+	friend ostream& operator<<(ostream&,Complex);
+	friend istream& operator>>(istream&,Complex&);
+	
 };
+
+ostream& operator<<(ostream &dout,Complex C)
+{
+	cout<<"a="<<C.a<<" b="<<C.b<<"\n";
+	return dout;
+}
+
+istream& operator>>(istream &din,Complex &C)
+{
+	cin>>C.a>>C.b;
+	return din;
+}
+
 
 Complex operator-(Complex X)
 {
@@ -46,8 +63,14 @@ int main()
 	Complex c1(2,3);
 	Complex c2(3,3);
 	Complex c3=c1+c2;
-	c3.showData();
-	c3=-c3;
-	c3.showData();
+	
+	cin>>c1;
+	cin>>c2;
+	cout<<(c1+c2)<<"\n";
+	
+	// cin>>c1;  => operator(cin,c1);   diffrent class friend 
+	// operator>>(cin,c1);
+	
+	
 	return 0;
 }
