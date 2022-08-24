@@ -84,6 +84,14 @@ public:
 	{
 		return (c.a==a and c.b==b);
 	}
+	
+	Complex operator -()
+	{
+		Complex temp;
+		temp.a=-a;
+		temp.b=-b;
+		return temp;
+	}
 
 };
 
@@ -94,15 +102,16 @@ int main()
 	Complex c1,c2,c3;
 	c1.setData(2,4);
 	c2.setData(4,3);
-	
+	c3=c1+c2;
 // Note: all this are same
 //	c3=c2.add(c1);
 //	c3=c2.operator +(c1);
-//  c3=c2+c1        
-	
-	c3=c2+c1;
-    c2=c2-c1;
-    c3=c3+c2;
+//  c3=c2+c1  
+
+// Note 
+// c3=c3.operator-()
+   c3=-c3;      // Unery operator ma operator pahela aave   
+
     
 	c3.Print();
 	c3+=c3;
