@@ -40,19 +40,19 @@ public:
 		cout<<"This is static Method\n";
 	}
 	
-	
+	// Normal Function
 	Complex add(Complex c)
 	{
-		// This code can use private members
 		Complex temp;
 		temp.a=a+c.a;
 		temp.b=b+c.b;
 		return temp;
 	}
 	
+	
+	// https://youtu.be/bxSFAmzH8ps <= Where i learn this 
 	Complex operator + (const Complex &c)
 	{
-		// This code can use private members
 		Complex temp;
 		temp.a=a+c.a;
 		temp.b=b+c.b;
@@ -72,6 +72,12 @@ public:
 	{
 		c.a=a+c.a;
 		c.b=b+c.b;
+	}
+	
+	void operator -= (Complex &c)
+	{
+		c.a=a-c.a;
+		c.b=b-c.b;
 	}
 
 	bool operator == (const Complex &c)
@@ -101,5 +107,17 @@ int main()
 	c3.Print();
 	c3+=c3;
 	c3.Print();
+	
+	c2=c3;
+	if(c3==c2)
+	{
+		cout<<"Equal\n";
+	}
+	else
+	{
+		cout<<"Not Equal\n";
+	}
+	
+	
 	return 0;	
 }
