@@ -17,11 +17,20 @@ public:
 	
 	void showData()
 	{
-		cout<<a<<"+ i"<<b<<"\n";
+		cout<<a<<((b<0)?"-":"+")<<"i"<<abs(b)<<"\n";
 	}
 	
-	friend Complex operator+(Complex X,Complex Y);
+	friend Complex operator+(Complex,Complex);
+	friend Complex operator-(Complex);
 };
+
+Complex operator-(Complex X)
+{
+	Complex temp;
+	temp.a=-X.a;
+	temp.b=-X.b;
+	return temp;
+}
 
 Complex operator+(Complex X,Complex Y)
 {
@@ -38,6 +47,7 @@ int main()
 	Complex c2(3,3);
 	Complex c3=c1+c2;
 	c3.showData();
-	
+	c3=-c3;
+	c3.showData();
 	return 0;
 }
