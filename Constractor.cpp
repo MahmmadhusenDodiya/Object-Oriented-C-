@@ -6,22 +6,31 @@ class Complex{
 	
 private:
 	int a,b;
-public:
 	
+public:
+	// Perametarized constractor
 	Complex(int x,int y)
 	{
 		a=x;
 		b=y;
 	}
+	
+	//default constractor
 	Complex()
 	{
 			
 	}
+	
+	// copy Constractor
+	// herer we must use & to stop recurtion , and const keyword as it always use with & to 
+	// avoide modification
 	Complex(const Complex &c)
 	{
 		a=c.a;
 		b=c.b;
 	}
+	
+	
 	
 	void setData(int a,int b)
 	{
@@ -34,7 +43,7 @@ public:
 		cout<<a<<" + "<<b<<"i\n";
 	}
 	
-	
+	// static methods
 	static void OK()
 	{
 		cout<<"This is static Method\n";
@@ -68,16 +77,16 @@ public:
 	}
 	
 	
-	void operator += (Complex &c)
+	void operator += (const Complex &c)
 	{
-		c.a=a+c.a;
-		c.b=b+c.b;
+		a=a+c.a;
+		b=b+c.b;
 	}
 	
-	void operator -= (Complex &c)
+	void operator -= (const Complex &c)
 	{
-		c.a=a-c.a;
-		c.b=b-c.b;
+		a=a-c.a;
+		b=b-c.b;
 	}
 
 	bool operator == (const Complex &c)
@@ -85,6 +94,8 @@ public:
 		return (c.a==a and c.b==b);
 	}
 	
+	
+	// Unary Operator
 	Complex operator -()
 	{
 		Complex temp;
@@ -102,7 +113,13 @@ int main()
 	Complex c1,c2,c3;
 	c1.setData(2,4);
 	c2.setData(4,3);
-	c3=c1+c2;
+	c3=c2;
+	c3+=c1;
+	c3.Print();
+//	c3=c1+c2;
+	
+	
+	
 // Note: all this are same
 //	c3=c2.add(c1);
 //	c3=c2.operator +(c1);

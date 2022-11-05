@@ -2,7 +2,7 @@
 using namespace std;
 
 
-// constractor of class B called first it call constrator A using Init-list
+// constractor of class B called first it call constrator A using Init-list or A will call without Init-list
 // distractor of class B called first it call distractor of A at last  
 
 class A{
