@@ -10,7 +10,7 @@ class Person{
 	public:
 		virtual void fun()=0; 
 		// this is pure virtual function
-		
+		// we must provide the implimentation of this fun in its derived class 
 	 
 };
 
@@ -28,7 +28,7 @@ int main()
 {
 	
 	Student p;
-	p.fun();
+//	p.fun();
 	
 	return 0;
 }
